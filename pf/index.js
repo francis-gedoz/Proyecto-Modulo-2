@@ -1,4 +1,4 @@
-function crearPregunta(pregunta, opciones, respuestaCorrecta) { // Función para inicializar la creación de una pregunta
+function crearPregunta(pregunta, opciones, respuestaCorrecta) {
     return {
         pregunta: pregunta,
         opciones: opciones,
@@ -7,7 +7,7 @@ function crearPregunta(pregunta, opciones, respuestaCorrecta) { // Función para
     };
 }
 
-function ingresarPreguntas() { // Función para definir una cantidad de preguntas (se puede seguir agregando)
+function ingresarPreguntas() {
     const preguntas = [];
     const cantidadPreguntas = prompt("¿Cuántas preguntas deseas agregar? (ideal 8 o más)").trim();
 
@@ -32,7 +32,7 @@ function ingresarPreguntas() { // Función para definir una cantidad de pregunta
     return preguntas;
 }
 
-function realizarPreguntas(arrayPreguntas) { // Función para realizar las preguntas y registrar respuestas
+function realizarPreguntas(arrayPreguntas) {
     return arrayPreguntas.map(function(p) {
         const entradaRespuesta = prompt(
             `${p.pregunta}\n\n1. ${p.opciones[0]}\n2. ${p.opciones[1]}\n3. ${p.opciones[2]}\n\nEscribe el número o el texto de tu respuesta:`
@@ -62,13 +62,13 @@ function realizarPreguntas(arrayPreguntas) { // Función para realizar las pregu
   });
 }
 
-function calcularPuntaje(preguntasRespondidas) { // Función para calcular el puntaje final
+function calcularPuntaje(preguntasRespondidas) {
     return preguntasRespondidas.reduce(function(puntaje, p) {
         const esCorrecta = p.respuestaUsuario.trim().toLowerCase() === p.respuestaCorrecta.trim().toLowerCase();
     return puntaje + (esCorrecta ? 1 : 0);}, 0);
 }
 
-function ingresarTitulo() { // Función para ingresar el título de la encuesta y comenzar el proceso
+function ingresarTitulo() {
     const titulo = prompt("Ingresa el título de la encuesta:");
     console.log(`\n--- Encuesta: "${titulo}" ---\n`);
 
